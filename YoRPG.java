@@ -64,13 +64,23 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 
-	s = "Choose your class: \n";
-	s+= "\t1: Warrior (" + Warrior.about() + ")";
-	s+= "\t2: Mage (" + Mage.about() + ")";
+	s = "Choose your hero: \n";
+	s+= "\t1: Sherlock (" + Sherlock.about() + ")";
+	s+= "\t2: Hermione (" + Hermione.about() + ")";
 	System.out.print(s);
 
 	try {
-	    charType = Integer.parseInt( in.readLine() );
+	    heroType = Integer.parseInt( in.readLine() );
+	}
+	catch ( IOException e ) { }
+
+	s = "Choose your sidekick: \n";
+	s+= "\t1: John (" + John.about() + ")";
+	s+= "\t2: Dobby (" + Dobby.about() + ")";
+	System.out.print(s);
+
+	try {
+	    sidekickType = Integer.parseInt( in.readLine() );
 	}
 	catch ( IOException e ) { }
 
@@ -82,26 +92,22 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 
-	if (charType == 1) { //if player chooses to be a warrior
-	    //instantiate the player's character
-	    pat = new Warrior( name );
+	if (heroType == 1) { //if player chooses Sherlock as hero
+	    //instantiate the player's hero
+	    pat = new Sherlock( name );
 	}
 
-	else if (charType == 2) { //if player chooses to be a mage
-	    //instantiate the player's character
-	    pat = new Mage( name );
+	else if (heroType == 2) { //if player chooses Hermione as hero
+	    //instantiate the player's hero
+	    pat = new Hermione( name );
 	}
 	
-	else if (charType == 3) {
-	    pat = new Rogue( name );
+	else if (sidekickType == 1) {
+	    pat = new John( name );
 	}
 
-	else if (charType == 4) {
-	    pat = new Knight( name );
-	}
-
-	else {
-	    pat = new Kitten( name );
+	else if (sidekickType == 2) {
+	    pat = new Dobby( name );
 	}
 
     }//end newGame()
@@ -157,7 +163,7 @@ public class YoRPG {
 	    if ( !smaug.isAlive() && !pat.isAlive() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
 				    "You cut ye olde monster down, but " +
-				    "with its dying breath ye olde monster. " +
+				    "with its dying breath ye olde monster " +
 				    "laid a fatal blow upon thy skull." );
 		return false;
 	    }
