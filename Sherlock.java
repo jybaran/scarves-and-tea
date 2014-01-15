@@ -3,8 +3,8 @@
 // Final Project 
 // 2013-11-15
 
-public class Sherlock extends Character {
-    public Sherlock() {
+public class Johnlock extends Character {
+    public Johnlock() {
 	_hp = 125;
 	_str = 40;
 	_def = 100;
@@ -46,6 +46,7 @@ public class Sherlock extends Character {
     public static String about() {
 	String retStr = "Sherlock. Does Sherlock things.  ";
 	retStr += "I don't know what those are yet.";
+	retStr += "John is also there.";
 	return retStr;
     }
 
