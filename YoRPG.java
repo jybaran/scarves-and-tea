@@ -18,6 +18,7 @@ public class YoRPG {
     private Monster smaug; //Friendly generic monster name, eh?
 
     private int moveCount;
+    private int levelCount;
     private boolean gameOver;
     private int difficulty;
 
@@ -47,6 +48,7 @@ public class YoRPG {
       =============================================*/
     public void newGame() {
 
+	levelCount = 0;
 	String s;
 	int charType = 0;
 	String name = "";
