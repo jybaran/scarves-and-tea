@@ -99,28 +99,20 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 
-	s = "Brave adventurer, what doth thy call thyself? (State your name): ";
-	System.out.print( s );
-	
-	try {
-	    name = in.readLine();
-	}
-	catch ( IOException e ) { }
-
 	if (heroType == 1 && sidekickType == 1) {
-	    pat = new Johnlock( name );
+	    pat = new Johnlock();
 	}
 
 	else if (heroType == 1 && sidekickType == 2 ) { 
-	    pat = new Sherstrade( name );
+	    pat = new Sherstrade();
 	}
 	
 	else if (heroType == 2 && sidekickType == 1) {
-	    pat = new Ronmione( name );
+	    pat = new Ronmione();
 	}
 
 	else if (heroType == 1 && sidekickType == 2) {
-	    pat = new Catlady( name );
+	    pat = new Catlady();
 	}
 
     }//end newGame()
@@ -128,11 +120,11 @@ public class YoRPG {
 
     /*=============================================
       boolean playTurn -- simulates a round of combat
-      pre:  Warrior pat has been initialized
+      pre:  hero pat has been initialized
       post: Returns true if player wins (monster dies).
             Returns false if monster wins (player dies).
       =============================================*/
-    public boolean playTurn() {
+    public boolean playRound() {
 
 	int i = 1;
 	int d1, d2;
@@ -165,7 +157,7 @@ public class YoRPG {
 		d1 = pat.attack( smaug );
 		d2 = smaug.attack( pat );
 
-		System.out.println( pat.getName() + " dealt " + d1 +
+		System.out.println( pat.getNam("You dealt " + d1 +
 				    " points of damage.");
 
 		System.out.println( "Ye Olde Monster hit back for " + d2 +
@@ -193,7 +185,7 @@ public class YoRPG {
 	}//end else
 
 	return true;
-    }//end playTurn()
+    }//end playRound()
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -206,7 +198,7 @@ public class YoRPG {
 	int encounters = 0;
 
 	while( encounters < MAX_ENCOUNTERS ) {
-	    if ( !game.playTurn() )
+	    if ( !game.playRound() )
 		break;
 	    encounters++;
 	    System.out.println();
