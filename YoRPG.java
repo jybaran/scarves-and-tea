@@ -24,6 +24,9 @@ public class YoRPG {
 
     private InputStreamReader isr;
     private BufferedReader in;
+
+    private String[][] charas;
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -33,6 +36,13 @@ public class YoRPG {
 	gameOver = false;
 	isr = new InputStreamReader( System.in );
 	in = new BufferedReader( isr );
+
+	charas = new String[2][2];
+	charas[0][0] = "John (description here)";
+	charas[0][1] = "Lestrade (description here)";
+	charas[1][0] = "Ron (description here)";
+	charas[1][1] = "Crookshanks (description here)";
+
 	newGame();
     }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +60,8 @@ public class YoRPG {
 
 	levelCount = 0;
 	String s;
-	int charType = 0;
+	int heroType = 0;
+	int sidekickType = 0;
 	String name = "";
 	s = "Welcome to Ye Olde RPG!\n";
 
@@ -67,8 +78,9 @@ public class YoRPG {
 	catch ( IOException e ) { }
 
 	s = "Choose your hero: \n";
-	s+= "\t1: Sherlock (" + Sherlock.about() + ")";
-	s+= "\t2: Hermione (" + Hermione.about() + ")";
+	s+= "\t1: Sherlock (description here)\n";
+	s+= "\t2: Hermione (description here)\n";
+	s+= "Selection: ";
 	System.out.print(s);
 
 	try {
@@ -77,8 +89,9 @@ public class YoRPG {
 	catch ( IOException e ) { }
 
 	s = "Choose your sidekick: \n";
-	s+= "\t1: John (" + John.about() + ")";
-	s+= "\t2: Dobby (" + Dobby.about() + ")";
+	s+= "\t1: " + charas[heroType-1][0] + "\n";
+	s+= "\t2: " + charas[heroType-1][1] + "\n";
+	s+= "Selection: ";
 	System.out.print(s);
 
 	try {
@@ -94,22 +107,20 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 
-	if (heroType == 1) { //if player chooses Sherlock as hero
-	    //instantiate the player's hero
-	    pat = new Sherlock( name );
+	if (heroType == 1 && sidekickType == 1) {
+	    pat = new Johnlock( name );
 	}
 
-	else if (heroType == 2) { //if player chooses Hermione as hero
-	    //instantiate the player's hero
-	    pat = new Hermione( name );
+	else if (heroType == 1 && sidekickType == 2 ) { 
+	    pat = new Sherstrade( name );
 	}
 	
-	else if (sidekickType == 1) {
-	    pat = new John( name );
+	else if (heroType == 2 && sidekickType == 1) {
+	    pat = new Ronmione( name );
 	}
 
-	else if (sidekickType == 2) {
-	    pat = new Dobby( name );
+	else if (heroType == 1 && sidekickType == 2) {
+	    pat = new Catlady( name );
 	}
 
     }//end newGame()
@@ -183,6 +194,7 @@ public class YoRPG {
 
 	return true;
     }//end playTurn()
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

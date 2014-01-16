@@ -18,7 +18,7 @@ public class Monster extends Character {
 	return "";
     }
     
-    public int attack(Warrior opponent) {
+    public int attack(Character opponent) {
 	return super.attack(opponent);
     }
 
