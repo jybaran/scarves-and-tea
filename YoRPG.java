@@ -1,7 +1,7 @@
-// JENNY BARAN
+// JENNY BARAN, MARIA VASILKIN
 // pd 8
-// HW26
-// 2013-11-15
+// Final Project 
+// 2014-01-21
 
 import java.io.*;
 import java.util.*;

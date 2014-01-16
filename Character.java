@@ -1,7 +1,7 @@
-// JENNY BARAN
+// JENNY BARAN, MARIA VASILKIN
 // pd 8
-// HW25
-// 2013-11-14
+// Final Project 
+// 2014-01-21
 
 public abstract class Character {
 

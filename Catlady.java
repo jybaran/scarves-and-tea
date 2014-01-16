@@ -1,7 +1,7 @@
 // JENNY BARAN, MARIA VASILKIN
 // pd 8
 // Final Project 
-// 2013-11-15
+// 2014-01-21
 
 public class Catlady extends Character {
     public Catlady() {
