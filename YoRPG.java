@@ -58,7 +58,7 @@ public class YoRPG {
       =============================================*/
     public void newGame() {
 
-	levelCount = 0;
+	levelCount = 1;
 	String s;
 	int heroType = 0;
 	int sidekickType = 0;
@@ -135,7 +135,7 @@ public class YoRPG {
 	else {
 	    System.out.println( "Lo, yonder monster approacheth!" );
 
-	    smaug = new Monster();
+	    smaug = new Monster( levelCount );
 
 	    while( smaug.isAlive() && pat.isAlive() ) {
 

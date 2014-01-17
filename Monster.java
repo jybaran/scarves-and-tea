@@ -6,13 +6,21 @@
 public class Monster extends Character {
 
     public Monster() {
+	_hp = 150;
+	_str = 20 + (int)( Math.random() * 45 );
+	_def = 20;
+	_attack = 1;
+    }
+
+
+    public Monster(int i) {
 
 	_hp = 150;
 	_str = 20 + (int)( Math.random() * 45 );
 	_def = 20;
 	_attack = 1;
 	String _name; 
-	int _type = 1;
+	int _type = i;
 	
 	if (_type == 1)
 	    _name = "bear";
