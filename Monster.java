@@ -11,11 +11,19 @@ public class Monster extends Character {
 	_str = 20 + (int)( Math.random() * 45 );
 	_def = 20;
 	_attack = 1;
-
+	String _name; 
+	int _type = 1;
+	
+	if (_type == 1)
+	    _name = "bear";
+	else if (_type == 2)
+	    _name = "pterodactyl";
+	else
+	    _name = "bearodactyl";
     }
 
     public String getName() {
-	return "";
+	return _name;
     }
     
     public int attack(Character opponent) {

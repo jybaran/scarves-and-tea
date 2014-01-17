@@ -198,7 +198,7 @@ public class YoRPG {
 	int encounters = 0;
 
 	while( encounters < MAX_ENCOUNTERS ) {
-	    if ( !game.playRound() )
+	    if ( !game.playRound() )//playLevel
 		break;
 	    encounters++;
 	    System.out.println();
