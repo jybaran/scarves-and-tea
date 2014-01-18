@@ -18,6 +18,7 @@ public class YoRPG {
     private Monster smaug; //Friendly generic monster name, eh?
 
     private int moveCount;
+    private int roundCount;
     private int levelCount;
     private boolean gameOver;
     private int difficulty;
@@ -133,6 +134,7 @@ public class YoRPG {
 	    System.out.println( "Nothing to see here. Move along!" );
 
 	else {
+	    System.out.println( "Play Round " + roundCount);
 	    System.out.println( "Lo, yonder monster approacheth!" );
 
 	    smaug = new Monster( levelCount );
@@ -189,20 +191,22 @@ public class YoRPG {
     }//end playRound()
 
     //PLAY LEVEL METHOD
-    public boolean playLevel() { 
-	int roundsPlayed = 0;
+    public boolean playLevel() {
+	roundCount = 1;
 	int wins = 0;
 	int losses = 0;
 	int i= 1;
+	System.out.println("Let's play level " + levelCount + "!");
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
 	    if (playRound()) {
 		//adjust hp and stuff
 		wins ++;
+		roundCount ++;
 	    }
 	    else { 
 		losses ++;
-		roundsPlayed++;
+		roundCount ++;
 	    }
 	}
 	if (losses >= 3) {
@@ -220,7 +224,11 @@ public class YoRPG {
 		if (i == 1) {
 		    playRound();
 		}
-		else return true;
+		else {
+		    roundCount --;
+		    levelCount++;
+		    return true;
+		}
 	    }
 	}
 	return true;
@@ -242,7 +250,7 @@ public class YoRPG {
 
 	int encounters = 0;
 
-	while( encounters < 3) {//encounters < MAX_ENCOUNTERS ) {
+	while( encounters <= 3) {//encounters < MAX_ENCOUNTERS ) {
 	    if ( !game.playLevel() )//originally playRound
 		break;
 	    encounters++;
