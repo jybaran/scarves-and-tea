@@ -20,6 +20,8 @@ public class YoRPG {
     private int moveCount;
     private int roundCount;
     private int levelCount;
+    private int wins;
+    private int losses;
     private boolean gameOver;
     private int difficulty;
 
@@ -130,15 +132,15 @@ public class YoRPG {
 	int i = 1;
 	int d1, d2;
 
-	if ( Math.random() >= ( difficulty / 3.0 ) )
-	    System.out.println( "Nothing to see here. Move along!" );
+	/*if ( Math.random() >= ( difficulty / 3.0 ) )
+	  System.out.println( "Nothing to see here. Move along!" );
 
-	else {
-	    System.out.println( "Play Round " + roundCount);
-	    System.out.println( "Lo, yonder monster approacheth!" );
+	  else {*/
 
-	    smaug = new Monster( levelCount );
-	}
+	System.out.println( "Play Round " + roundCount);
+	System.out.println( "Lo, yonder monster approacheth!" );
+
+	smaug = new Monster( levelCount );
 
 	while( smaug.isAlive() && pat.isAlive() ) {
 
@@ -163,7 +165,7 @@ public class YoRPG {
 	    /*There was weird looking code here and I need
 	      to make sure I didn;t delete something important*/
 	    System.out.println("You dealt " + d1 +
-					   " points of damage.");
+			       " points of damage.");
 
 	    System.out.println( "Ye Olde Monster hit back for " + d2
 				+ " points of damage.");
@@ -179,34 +181,48 @@ public class YoRPG {
 	}
 	//option 2: you slay the beast
 	else if ( !smaug.isAlive() ) {
-	    System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+	    roundCount ++;
+	    wins ++;
+	    System.out.println( "HuzzaaH! Ye olde monster hath been slain!" 
+				+ " Rounds played: " + roundCount
+				+ " Rounds won: " + wins);
 	    return true;
 	}
 	//option 3: the beast slays you
 	else if ( !pat.isAlive() ) {
+	    roundCount ++;
+	    losses ++;
 	    System.out.println( "Ye olde self hath expired. You got dead." );
 	    return false;
 	}//end else
 	return true;
     }//end playRound()
 
+    public boolean continuedPlay() {
+        if (playRound()) {
+	    //adjust _hp
+	}
+	if (losses >= 3) {
+	    System.out.println( "You fought bravely and lost. Oops.");
+	    return false;
+	}
+	return true;
+	    
+    }
+	
+	
+
     //PLAY LEVEL METHOD
     public boolean playLevel() {
 	roundCount = 1;
-	int wins = 0;
-	int losses = 0;
+	wins = 0;
+	losses = 0;
 	int i= 1;
 	System.out.println("Let's play level " + levelCount + "!");
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
 	    if (playRound()) {
 		//adjust hp and stuff
-		wins ++;
-		roundCount ++;
-	    }
-	    else { 
-		losses ++;
-		roundCount ++;
 	    }
 	}
 	if (losses >= 3) {
@@ -222,10 +238,12 @@ public class YoRPG {
 		}
 		catch ( IOException e ) { }
 		if (i == 1) {
-		    playRound();
+		    if(continuedPlay()) {
+			playLevel();
+		    }
+		    return false;
 		}
 		else {
-		    roundCount --;
 		    levelCount++;
 		    return true;
 		}
