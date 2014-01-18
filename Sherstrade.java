@@ -7,10 +7,10 @@ public class Sherstrade extends Character {
     public Sherstrade() {
 	_hp = 125;
 	_str = 40;
-	_def = 100;
-	_altdef = _def/2;
+	_def = 40;
+	_altdef = (_def/2) + (int)(Math.random()* _attack)  ;
 	_attack = 0.4;
-	_altattack = _attack*2;
+	_altattack = (_attack/2.0) + (Math.random() * _attack) ;
     }
 
     public int attack(Character opponent) {

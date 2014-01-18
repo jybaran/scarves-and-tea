@@ -137,7 +137,7 @@ public class YoRPG {
 
 	  else {*/
 
-	System.out.println( "Play Round " + roundCount);
+	System.out.println( "Play Round " + (roundCount + 1));
 	System.out.println( "Lo, yonder monster approacheth!" );
 
 	smaug = new Monster( levelCount );
@@ -163,7 +163,7 @@ public class YoRPG {
 	    d2 = smaug.attack( pat );
 
 	    /*There was weird looking code here and I need
-	      to make sure I didn;t delete something important*/
+	      to make sure I didn't delete something important*/
 	    System.out.println("You dealt " + d1 +
 			       " points of damage.");
 
@@ -214,7 +214,7 @@ public class YoRPG {
 
     //PLAY LEVEL METHOD
     public boolean playLevel() {
-	roundCount = 1;
+	roundCount = 0;
 	wins = 0;
 	losses = 0;
 	int i= 1;
