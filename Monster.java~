@@ -4,7 +4,7 @@
 // 2014-01-21
 
 public class Monster extends Character {
-    String _name = "";
+
     public Monster() {
 	_hp = 150;
 	_str = 20 + (int)( Math.random() * 45 );
@@ -12,13 +12,14 @@ public class Monster extends Character {
 	_attack = 1;
     }
 
- 
+
     public Monster(int i) {
 
 	_hp = 150;
 	_str = 20 + (int)( Math.random() * 45 );
 	_def = 20;
 	_attack = 1;
+	String _name; 
 	int _type = i;
 	
 	if (_type == 1)

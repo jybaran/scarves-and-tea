@@ -3,8 +3,8 @@
 // Final Project 
 // 2014-01-21
 
-public class Ronmione extends Character {
-    public Ronmione() {
+public class Sherstrade extends Character {
+    public Sherstrade() {
 	_hp = 125;
 	_str = 40;
 	_def = 100;
@@ -30,10 +30,6 @@ public class Ronmione extends Character {
 	  already prepped for a special attack, so nothing changes*/
     }
 
-    public String getName() {
-	return "";
-    }
-
     public void normalize() {
 	if (_attack > _altattack) {
 	    double tempA = _attack;
@@ -48,9 +44,9 @@ public class Ronmione extends Character {
     }
 
     public static String about() {
-	String retStr = "Hermoine is a smart person. \n";
-	retStr += "She has a cat.\n";
-	retStr += "They love each other.";
+	String retStr = "Sherlock. Does Sherlock things.  ";
+	retStr += "I don't know what those are yet.";
+	retStr += "Lestrade is also there.";
 	return retStr;
     }
 

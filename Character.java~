@@ -8,9 +8,7 @@ public abstract class Character {
     protected int _hp;
     protected int _str;
     protected int _def;
-    protected int _altdef;
     protected double _attack;
-    protected double _altattack;
     
     public boolean isAlive() {
 	return _hp > 0;

@@ -122,7 +122,7 @@ public class YoRPG {
       boolean playTurn -- simulates a round of combat
       pre:  hero pat has been initialized
       post: Returns true if player wins (monster dies).
-            Returns false if monster wins (player dies).
+      Returns false if monster wins (player dies).
       =============================================*/
     public boolean playRound() {
 
@@ -136,57 +136,97 @@ public class YoRPG {
 	    System.out.println( "Lo, yonder monster approacheth!" );
 
 	    smaug = new Monster( levelCount );
+	}
 
-	    while( smaug.isAlive() && pat.isAlive() ) {
+	while( smaug.isAlive() && pat.isAlive() ) {
 
-		// Give user the option of using a special attack:
-		// If you land a hit, you incur greater damage,
-		// ...but if you get hit, you take more damage.
-		try {
-		    System.out.println( "Do you feel lucky?" );
-		    System.out.println( "\t1: Nay.\n\t2: Aye!" );
-		    i = Integer.parseInt( in.readLine() );
+	    // Give user the option of using a special attack:
+	    // If you land a hit, you incur greater damage,
+	    // ...but if you get hit, you take more damage.
+	    try {
+		System.out.println( "Do you feel lucky?" );
+		System.out.println( "\t1: Nay.\n\t2: Aye!" );
+		i = Integer.parseInt( in.readLine() );
+	    }
+	    catch ( IOException e ) { }
+
+	    if ( i == 2 )
+		pat.specialize();
+	    else
+		pat.normalize();
+
+	    d1 = pat.attack( smaug );
+	    d2 = smaug.attack( pat );
+
+	    System.out.println( pat.getNam("You dealt " + d1 +
+					   " points of damage.");
+
+				System.out.println( "Ye Olde Monster hit back for " + d2 +
+						    " points of damage.");
+				}//end while
+
+		//option 1: you & the monster perish
+		if ( !smaug.isAlive() && !pat.isAlive() ) {
+		    System.out.println( "'Twas an epic battle, to be sure... " + 
+					"You cut ye olde monster down, but " +
+					"with its dying breath ye olde monster " +
+					"laid a fatal blow upon thy skull." );
+		    return false;
 		}
-		catch ( IOException e ) { }
-
-		if ( i == 2 )
-		    pat.specialize();
-		else
-		    pat.normalize();
-
-		d1 = pat.attack( smaug );
-		d2 = smaug.attack( pat );
-
-		System.out.println( pat.getNam("You dealt " + d1 +
-				    " points of damage.");
-
-		System.out.println( "Ye Olde Monster hit back for " + d2 +
-				    " points of damage.");
-	    }//end while
-
-	    //option 1: you & the monster perish
-	    if ( !smaug.isAlive() && !pat.isAlive() ) {
-		System.out.println( "'Twas an epic battle, to be sure... " + 
-				    "You cut ye olde monster down, but " +
-				    "with its dying breath ye olde monster " +
-				    "laid a fatal blow upon thy skull." );
-		return false;
-	    }
 	    //option 2: you slay the beast
-	    else if ( !smaug.isAlive() ) {
-		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
-		return true;
-	    }
+		else if ( !smaug.isAlive() ) {
+		    System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+		    return true;
+		}
 	    //option 3: the beast slays you
-	    else if ( !pat.isAlive() ) {
-		System.out.println( "Ye olde self hath expired. You got dead." );
-		return false;
-	    }
+		else if ( !pat.isAlive() ) {
+		    System.out.println( "Ye olde self hath expired. You got dead." );
+		    return false;
+		}
 	}//end else
 
 	return true;
     }//end playRound()
 
+    //PLAY LEVEL METHOD
+    public boolean playLevel() { 
+	int roundsPlayed = 0;
+	int wins = 0;
+	int losses = 0;
+	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
+	while (wins < 3 && losses < 3) { 
+	    if (playRound()) {
+		//adjust hp and stuff
+		wins ++;
+	    else 
+		losses ++;
+	    roundsPlayed++;
+	}
+	if (losses >= 3) {
+	    System.out.println( "You fought bravely and lost. Oops.");
+	    return false;
+	}
+	else if (wins >= 3) {
+	    if (levelCount < 3) { //bc the last time shouldn't prompt you for the next level
+		try {
+		    System.out.println( "Good job, man. Now what?" );
+		    System.out.println( "\t1: Keep playing level. \n\t2: Proceed to next level" );
+		    i = Integer.parseInt( in.readLine() );
+		}
+		catch ( IOException e ) { }
+		if (i == 1) {
+		    playRound();
+		}
+		else return true;
+	    }
+	}
+
+
+	    
+	
+	    
+	    
+	
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -197,8 +237,8 @@ public class YoRPG {
 
 	int encounters = 0;
 
-	while( encounters < MAX_ENCOUNTERS ) {
-	    if ( !game.playRound() )//playLevel
+	while( encounters < 3) {//encounters < MAX_ENCOUNTERS ) {
+	    if ( !game.playLevel() )//originally playRound
 		break;
 	    encounters++;
 	    System.out.println();

@@ -30,6 +30,10 @@ public class Sherstrade extends Character {
 	  already prepped for a special attack, so nothing changes*/
     }
 
+    public String getName() {
+	return "";
+    }
+
     public void normalize() {
 	if (_attack > _altattack) {
 	    double tempA = _attack;

@@ -3,8 +3,8 @@
 // Final Project 
 // 2014-01-21
 
-public class Ronmione extends Character {
-    public Ronmione() {
+public class Catlady extends Character {
+    public Catlady() {
 	_hp = 125;
 	_str = 40;
 	_def = 100;
@@ -28,10 +28,6 @@ public class Ronmione extends Character {
 	}
 	/*if the attack stat is larger than the alt attack, the warrior is
 	  already prepped for a special attack, so nothing changes*/
-    }
-
-    public String getName() {
-	return "";
     }
 
     public void normalize() {

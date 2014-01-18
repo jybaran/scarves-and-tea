@@ -11,7 +11,7 @@ public class YoRPG {
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
 
     //change this constant to set number of encounters in a game
-    public final static int MAX_ENCOUNTERS = 5;
+    public final static int MAX_ENCOUNTERS = 3; //should represent levels now, right?
 
     //each round, a Warrior and a Monster will be instantiated
     private Character pat;   //Is it man or woman?
@@ -158,33 +158,33 @@ public class YoRPG {
 	    d1 = pat.attack( smaug );
 	    d2 = smaug.attack( pat );
 
-	    System.out.println( pat.getNam("You dealt " + d1 +
+	    /*There was weird looking code here and I need
+	      to make sure I didn;t delete something important*/
+	    System.out.println("You dealt " + d1 +
 					   " points of damage.");
 
-				System.out.println( "Ye Olde Monster hit back for " + d2 +
-						    " points of damage.");
-				}//end while
+	    System.out.println( "Ye Olde Monster hit back for " + d2
+				+ " points of damage.");
+	}//end while
 
-		//option 1: you & the monster perish
-		if ( !smaug.isAlive() && !pat.isAlive() ) {
-		    System.out.println( "'Twas an epic battle, to be sure... " + 
-					"You cut ye olde monster down, but " +
-					"with its dying breath ye olde monster " +
-					"laid a fatal blow upon thy skull." );
-		    return false;
-		}
-	    //option 2: you slay the beast
-		else if ( !smaug.isAlive() ) {
-		    System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
-		    return true;
-		}
-	    //option 3: the beast slays you
-		else if ( !pat.isAlive() ) {
-		    System.out.println( "Ye olde self hath expired. You got dead." );
-		    return false;
-		}
+	//option 1: you & the monster perish
+	if ( !smaug.isAlive() && !pat.isAlive() ) {
+	    System.out.println( "'Twas an epic battle, to be sure... " + 
+				"You cut ye olde monster down, but " +
+				"with its dying breath ye olde monster " +
+				"laid a fatal blow upon thy skull." );
+	    return false;
+	}
+	//option 2: you slay the beast
+	else if ( !smaug.isAlive() ) {
+	    System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+	    return true;
+	}
+	//option 3: the beast slays you
+	else if ( !pat.isAlive() ) {
+	    System.out.println( "Ye olde self hath expired. You got dead." );
+	    return false;
 	}//end else
-
 	return true;
     }//end playRound()
 
@@ -193,14 +193,17 @@ public class YoRPG {
 	int roundsPlayed = 0;
 	int wins = 0;
 	int losses = 0;
+	int i= 1;
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
 	    if (playRound()) {
 		//adjust hp and stuff
 		wins ++;
-	    else 
+	    }
+	    else { 
 		losses ++;
-	    roundsPlayed++;
+		roundsPlayed++;
+	    }
 	}
 	if (losses >= 3) {
 	    System.out.println( "You fought bravely and lost. Oops.");
@@ -220,6 +223,8 @@ public class YoRPG {
 		else return true;
 	    }
 	}
+	return true;
+    }
 
 
 	    

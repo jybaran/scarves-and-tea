@@ -29,6 +29,10 @@ public class Catlady extends Character {
 	/*if the attack stat is larger than the alt attack, the warrior is
 	  already prepped for a special attack, so nothing changes*/
     }
+    
+    public String getName() {
+	return "";
+    }
 
     public void normalize() {
 	if (_attack > _altattack) {
