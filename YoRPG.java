@@ -41,10 +41,10 @@ public class YoRPG {
 	in = new BufferedReader( isr );
 
 	charas = new String[2][2];
-	charas[0][0] = "John (description here)";
-	charas[0][1] = "Lestrade (description here)";
-	charas[1][0] = "Ron (description here)";
-	charas[1][1] = "Crookshanks (description here)";
+	charas[0][0] = "John (Sherlock's flatmate & loyal blogger)";
+	charas[0][1] = "Lestrade (detective inspector for Scotland Yard)";
+	charas[1][0] = "Ron (red hair and a hand-me-down robe, he must be a Weasley)";
+	charas[1][1] = "Crookshanks (either a very large cat or quite a small tiger)";
 
 	newGame();
     }
@@ -81,8 +81,8 @@ public class YoRPG {
 	catch ( IOException e ) { }*/
 
 	s = "Choose your hero: \n";
-	s+= "\t1: Sherlock (description here)\n";
-	s+= "\t2: Hermione (description here)\n";
+	s+= "\t1: Sherlock (consulting detective & high-functioning sociopath)\n";
+	s+= "\t2: Hermione (cleverest witch of her age)\n";
 	s+= "Selection: ";
 	System.out.print(s);
 
@@ -183,7 +183,7 @@ public class YoRPG {
 	else if ( !smaug.isAlive() ) {
 	    roundCount ++;
 	    wins ++;
-	    System.out.println( "HuzzaaH! Ye olde monster hath been slain!" 
+	    System.out.println( "Huzzaah! Ye olde monster hath been slain!" 
 				+ " Rounds played: " + roundCount
 				+ " Rounds won: " + wins);
 	    return true;
