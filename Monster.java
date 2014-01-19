@@ -6,9 +6,11 @@
 public class Monster extends Character {
     public Monster() {
 	_hp = 150;
-	_str = 20 + (int)( Math.random() * 45 );
+	_str = 35 + (int)( Math.random() * 10 );
 	_def = 20;
-	_attack = 1;
+	_attack = 1.5;
+	_altattack = 2.5;
+	_altDefense = 10;
     }
 
  
@@ -35,10 +37,6 @@ public class Monster extends Character {
     public int attack(Character opponent) {
 	return super.attack(opponent);
     }
-
-    public void specialize() { }
-
-    public void normalize() { }
 
     public static String about() {
 	String retStr = "All we know about this monster is that it will probably ";

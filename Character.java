@@ -11,6 +11,7 @@ public abstract class Character {
     protected int _altdef;
     protected double _attack;
     protected double _altattack;
+    protected boolean isSpecial;
     
     public boolean isAlive() {
 	return _hp > 0;
@@ -20,12 +21,26 @@ public abstract class Character {
 	return _def;
     }
 
+    public int getSpDefense() {
+	return _altdef;
+    }
+
     public void lowerHP(int x) {
 	_hp -= x;
     }
 
+    public void specialize( boolean b ) {
+	isSpecial = b;
+    }
+
     public int attack(Character opponent) {
-	int damage = (int)(_str*_attack) - opponent.getDefense();
+	
+	if ( isSpecial ) {
+	    int damage = (int)(_str*_altattack) - opponent.getSpDefense();
+	}
+	else {
+	    int damage = (int)(_str*_attack) - opponent.getDefense();
+	}
 	
 	if (damage < 0)
 	    damage = 0;
@@ -34,10 +49,6 @@ public abstract class Character {
 	
 	return damage;
     }
-
-    public abstract void specialize();
-
-    public abstract void normalize();
 
     public static String about() {
 	String retStr = "";
