@@ -153,13 +153,11 @@ public class YoRPG {
 		i = Integer.parseInt( in.readLine() );
 	    }
 	    catch ( IOException e ) { }
+
 	    if ( i == 2 )
-		boolean special = true;
-	    pat.specialize(special);
-	    else {
-	        boolean special = false;
-		pat.specialize(special);
-	    }
+		pat.specialize();
+	    else
+		pat.normalize();
 
 	    d1 = pat.attack( smaug );
 	    d2 = smaug.attack( pat );
