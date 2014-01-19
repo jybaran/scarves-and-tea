@@ -68,7 +68,7 @@ public class YoRPG {
 	String name = "";
 	s = "Welcome to Ye Olde RPG!\n";
 
-	s += "\nChoose your difficulty: \n";
+	/*s += "\nChoose your difficulty: \n";
 	s += "\t1: Easy\n";
 	s += "\t2: Not so easy\n";
 	s += "\t3: Beowulf hath nothing on me. Bring it on.\n";
@@ -78,7 +78,7 @@ public class YoRPG {
 	try {
 	    difficulty = Integer.parseInt( in.readLine() );
 	}
-	catch ( IOException e ) { }
+	catch ( IOException e ) { }*/
 
 	s = "Choose your hero: \n";
 	s+= "\t1: Sherlock (description here)\n";
@@ -114,7 +114,7 @@ public class YoRPG {
 	    pat = new Ronmione();
 	}
 
-	else if (heroType == 1 && sidekickType == 2) {
+	else if (heroType == 2 && sidekickType == 2) {
 	    pat = new Catlady();
 	}
 
@@ -122,7 +122,7 @@ public class YoRPG {
 
 
     /*=============================================
-      boolean playTurn -- simulates a round of combat
+      boolean playRound -- simulates a round of combat
       pre:  hero pat has been initialized
       post: Returns true if player wins (monster dies).
       Returns false if monster wins (player dies).
@@ -221,7 +221,7 @@ public class YoRPG {
 	System.out.println("Let's play level " + levelCount + "!");
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
-	    if (playRound()) {
+	    if ( playRound() ) {
 		//adjust hp and stuff
 	    }
 	}

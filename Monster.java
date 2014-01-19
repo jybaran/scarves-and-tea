@@ -29,6 +29,10 @@ public class Monster extends Character {
 	    _name = "bearodactyl";
     }
 
+    public boolean isAlive() {
+	return _hp > 0;
+    }
+
     public String getName() {
 	return _name;
     }
