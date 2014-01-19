@@ -233,8 +233,7 @@ public class YoRPG {
 	    if (levelCount < 3) { //bc the last time shouldn't prompt you for the next level
 		try {
 		    System.out.println( "Good job, man. You plaeyd " + roundCount
-		    			+ "rounds, and have " + (3- losses) + "lives remaining.
-		    			/n Now what?" );
+		    			+ "rounds, and have " + (3- losses) + "lives remaining. Now what?" );
 		    System.out.println( "\t1: Keep playing level. \n\t2: Proceed to next level" );
 		    i = Integer.parseInt( in.readLine() );
 		}
