@@ -4,7 +4,6 @@
 // 2014-01-21
 
 public class Monster extends Character {
-    String _name = "";
     public Monster() {
 	_hp = 150;
 	_str = 20 + (int)( Math.random() * 45 );
@@ -31,10 +30,6 @@ public class Monster extends Character {
 
     public boolean isAlive() {
 	return _hp > 0;
-    }
-
-    public String getName() {
-	return _name;
     }
     
     public int attack(Character opponent) {

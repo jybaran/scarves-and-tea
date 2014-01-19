@@ -80,7 +80,7 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }*/
 
-	s = "Choose your hero: \n";
+	s+= "Choose your hero: \n";
 	s+= "\t1: Sherlock (consulting detective & high-functioning sociopath)\n";
 	s+= "\t2: Hermione (cleverest witch of her age)\n";
 	s+= "Selection: ";

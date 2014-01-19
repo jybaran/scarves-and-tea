@@ -16,8 +16,6 @@ public abstract class Character {
 	return _hp > 0;
     }
 
-    public abstract String getName();
-
     public int getDefense() {
 	return _def;
     }
