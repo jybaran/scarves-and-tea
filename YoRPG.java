@@ -198,7 +198,7 @@ public class YoRPG {
 	return true;
     }//end playRound()
 
-    public boolean continuedPlay() {
+    public boolean continuedPlay() { //for playing more than 3 rounds per level
         if (playRound()) {
 	    //adjust _hp
 	}
