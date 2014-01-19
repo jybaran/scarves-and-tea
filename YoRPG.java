@@ -153,9 +153,10 @@ public class YoRPG {
 		i = Integer.parseInt( in.readLine() );
 	    }
 	    catch ( IOException e ) { }
-	    if ( i == 2 )
+	    if ( i == 2 ) { 
 		boolean special = true;
-	    pat.specialize(special);
+	    	pat.specialize(special);
+	    }
 	    else {
 	        boolean special = false;
 		pat.specialize(special);
