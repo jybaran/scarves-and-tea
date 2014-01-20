@@ -58,7 +58,8 @@ public abstract class Character {
 	else {
 	    damage = (int)(_str*_attack) - opponent.getDefense();
 	}
-	
+	damage = (int)(.75*damage) + (int)( Math.random()*(.25*damage) );	
+
 	if (damage < 0)
 	    damage = 0;
 
