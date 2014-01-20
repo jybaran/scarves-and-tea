@@ -69,16 +69,16 @@ public class YoRPG {
 	s = "Welcome to Ye Olde RPG!\n";
 
 	/*s += "\nChoose your difficulty: \n";
-	s += "\t1: Easy\n";
-	s += "\t2: Not so easy\n";
-	s += "\t3: Beowulf hath nothing on me. Bring it on.\n";
-	s += "Selection: ";
-	System.out.print( s );
+	  s += "\t1: Easy\n";
+	  s += "\t2: Not so easy\n";
+	  s += "\t3: Beowulf hath nothing on me. Bring it on.\n";
+	  s += "Selection: ";
+	  System.out.print( s );
 
-	try {
-	    difficulty = Integer.parseInt( in.readLine() );
-	}
-	catch ( IOException e ) { }*/
+	  try {
+	  difficulty = Integer.parseInt( in.readLine() );
+	  }
+	  catch ( IOException e ) { }*/
 
 	s+= "Choose your hero: \n";
 	s+= "\t1: Sherlock (consulting detective & high-functioning sociopath)\n";
@@ -212,6 +212,7 @@ public class YoRPG {
 
     public boolean continuedPlay() { //for playing more than 3 rounds per level
 	int hp = pat.getHP();
+	int i = 1;
 	if (playRound()) {
 	    pat.resetHP(hp);
 	    pat.raiseAttack(5);
@@ -222,8 +223,20 @@ public class YoRPG {
 	    System.out.println( "You fought bravely and lost. Oops.");
 	    return false;
 	}
+        try {
+	    System.out.println( "Good job, man. \n You played " + roundCount
+				+ "rounds, and have " + (3- losses) + "lives remaining. Now what?" );
+	    System.out.println( "\t1: Keep playing level. \n\t2: Proceed to next level" );
+	    i = Integer.parseInt( in.readLine() );
+	}
+	catch ( IOException e ) { }
+	if (i == 1) {
+	    continuedPlay();
+	}
+	else {
+	    return true; 	    
+	}
 	return true;
-	    
     }	
 
     //PLAY LEVEL METHOD
@@ -237,7 +250,7 @@ public class YoRPG {
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
 	    if ( playRound() ) {
-	        pat.resetHP(hp);
+		pat.resetHP(hp);
 		pat.raiseAttack(5);
 		pat.raiseDefense(5);
 	    }
@@ -248,17 +261,20 @@ public class YoRPG {
 	    return false;
 	}
 	else if (wins >= 3) {
-	    if (levelCount < 3) { //bc the last time shouldn't prompt you for the next level
+	    if (levelCount < 3) { 
 		try {
-		    System.out.println( "Good job, man. \n You played " + roundCount
-		    			+ "rounds, and have " + (3- losses) + "lives remaining. Now what?" );
+		    System.out.println( "Good job, man. \n You played " +
+					roundCount
+					+ "rounds, and have " + (3- losses) +
+					"lives remaining. Now what?" );
 		    System.out.println( "\t1: Keep playing level. \n\t2: Proceed to next level" );
 		    i = Integer.parseInt( in.readLine() );
 		}
 		catch ( IOException e ) { }
 		if (i == 1) {
 		    if(continuedPlay()) {
-			;
+			levelCount ++;
+			return true;  
 		    }
 		    return false;
 		}
@@ -269,12 +285,7 @@ public class YoRPG {
 	    }
 	}
 	return true;
-    }
-
-
-	    
-	
-	    
+    }	    
 	    
 	
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
