@@ -211,31 +211,37 @@ public class YoRPG {
     }//end playRound()
 
     public boolean continuedPlay() { //for playing more than 3 rounds per level
-        if (playRound()) {
-	    //adjust _hp
+	int hp = pat.getHP();
+	if (playRound()) {
+	    pat.resetHP(hp);
+	    pat.raiseAttack(5);
+	    pat.raiseDefense(5);
 	}
+	else pat.resetHP(hp);
 	if (losses >= 3) {
 	    System.out.println( "You fought bravely and lost. Oops.");
 	    return false;
 	}
 	return true;
 	    
-    }
-	
-	
+    }	
 
     //PLAY LEVEL METHOD
     public boolean playLevel() {
 	roundCount = 0;
 	wins = 0;
 	losses = 0;
+	int hp = pat.getHP();
 	int i= 1;
-	System.out.println("Let's play level " + levelCount + "!");
+	System.out.println("Let's play level " + levelCount + "!\n");
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
 	    if ( playRound() ) {
-		//adjust hp and stuff
+	        pat.resetHP(hp);
+		pat.raiseAttack(5);
+		pat.raiseDefense(5);
 	    }
+	    else pat.resetHP(hp);
 	}
 	if (losses >= 3) {
 	    System.out.println( "You fought bravely and lost. Oops.");
@@ -252,7 +258,7 @@ public class YoRPG {
 		catch ( IOException e ) { }
 		if (i == 1) {
 		    if(continuedPlay()) {
-			playLevel();
+			;
 		    }
 		    return false;
 		}

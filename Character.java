@@ -17,16 +17,32 @@ public abstract class Character {
 	return _hp > 0;
     }
 
+    public void raiseAttack(int x) {
+	_attack += x;
+    }
+
     public int getDefense() {
 	return _def;
+    }
+
+    public void  raiseDefense(int x) {
+	_def += x;
     }
 
     public int getSpDefense() {
 	return _altdef;
     }
 
+    public int getHP() {
+	return _hp;
+    }
+
     public void lowerHP(int x) {
 	_hp -= x;
+    }
+    
+    public void resetHP(int x) {
+	_hp = x;
     }
 
     public void specialize( boolean b ) {
