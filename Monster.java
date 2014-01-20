@@ -4,23 +4,22 @@
 // 2014-01-21
 
 public class Monster extends Character {
+    String _name;
+
     public Monster() {
 	_hp = 150;
 	_str = 35 + (int)( Math.random() * 10 );
 	_def = 20;
 	_attack = 1.5;
 	_altattack = 2.5;
-	_altDefense = 10;
+	_altdef = 10;
+	_name = "";
     }
 
  
     public Monster(int i) {
+	this();
 
-	_hp = 150;
-	_str = 20 + (int)( Math.random() * 45 );
-	_def = 20;
-	_attack = 1;
-	String _name;
 	int _type = i;
 	
 	if (_type == 1)
@@ -38,6 +37,11 @@ public class Monster extends Character {
     public int attack(Character opponent) {
 	return super.attack(opponent);
     }
+
+    public String getName() {
+	return _name;
+    }
+
 
     public static String about() {
 	String retStr = "All we know about this monster is that it will probably ";

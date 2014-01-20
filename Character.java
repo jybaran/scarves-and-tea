@@ -34,12 +34,13 @@ public abstract class Character {
     }
 
     public int attack(Character opponent) {
-	
+	int damage = 0;
+
 	if ( isSpecial ) {
-	    int damage = (int)(_str*_altattack) - opponent.getSpDefense();
+	    damage = (int)(_str*_altattack) - opponent.getSpDefense();
 	}
 	else {
-	    int damage = (int)(_str*_attack) - opponent.getDefense();
+	    damage = (int)(_str*_attack) - opponent.getDefense();
 	}
 	
 	if (damage < 0)

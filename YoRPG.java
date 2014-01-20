@@ -131,6 +131,14 @@ public class YoRPG {
 
 	int i = 1;
 	int d1, d2;
+	String monsterType = "";
+
+	if (levelCount == 1)
+	    monsterType = "bear";
+	else if (levelCount == 2)
+	    monsterType = "pterodactyl";
+	else
+	    monsterType = "bearodactyl";
 
 	/*if ( Math.random() >= ( difficulty / 3.0 ) )
 	  System.out.println( "Nothing to see here. Move along!" );
@@ -149,11 +157,12 @@ public class YoRPG {
 	    // ...but if you get hit, you take more damage.
 	    try {
 		System.out.println( "Do you feel lucky?" );
-		System.out.println( "\t1: Nay.\n\t2: Aye!" );
+		System.out.println( "\t1: Aye!\n\t2: Nay." );
 		i = Integer.parseInt( in.readLine() );
 	    }
 	    catch ( IOException e ) { }
-	    if ( i == 2 ) { 
+	    
+	    if ( i == 1 ) { 
 		boolean special = true;
 	    	pat.specialize(special);
 	    }
@@ -170,7 +179,7 @@ public class YoRPG {
 	    System.out.println("You dealt " + d1 +
 			       " points of damage.");
 
-	    System.out.println( "Ye Olde Monster hit back for " + d2
+	    System.out.println( "The " + monsterType + " hit back for " + d2
 				+ " points of damage.");
 	}//end while
 
