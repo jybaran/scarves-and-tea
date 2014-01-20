@@ -17,7 +17,7 @@ public abstract class Character {
 	return _hp > 0;
     }
 
-    public void raiseAttack(int x) {
+    public void raiseAttack(double x) {
 	_attack += x;
     }
 
