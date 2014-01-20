@@ -66,6 +66,7 @@ public class YoRPG {
 	int heroType = 0;
 	int sidekickType = 0;
 	String name = "";
+	int instructions = 0;
 	s = "Welcome to Ye Olde RPG!\n";
 
 	/*s += "\nChoose your difficulty: \n";
@@ -79,13 +80,25 @@ public class YoRPG {
 	  difficulty = Integer.parseInt( in.readLine() );
 	  }
 	  catch ( IOException e ) { }*/
+	s+= "Would you like to read the rules before you begin? \n";
+	s+="\t1: Sure\n \t2: Nah, I know what I'm doing\n";
+	System.out.print (s) ;
+	try {
+	    instructions = Integer.parseInt( in.readLine() );
+	}
+	catch (IOException e ) { }
+	if (instructions == 1) {
+	    String rules = "";
+	    rules += "Rules of the game. \n Now play! \n";
+	    System.out.println(rules);
+	}
 
 	s+= "Choose your hero: \n";
 	s+= "\t1: Sherlock (consulting detective & high-functioning sociopath)\n";
 	s+= "\t2: Hermione (cleverest witch of her age)\n";
 	s+= "Selection: ";
 	System.out.print(s);
-
+    
 	try {
 	    heroType = Integer.parseInt( in.readLine() );
 	}
@@ -149,6 +162,8 @@ public class YoRPG {
 	System.out.println( "Lo, yonder monster approacheth!" );
 
 	smaug = new Monster( levelCount );
+	smaug.raiseAttack(0.5 * (levelCount - 1));
+	smaug.raiseDefense(1 * (levelCount - 1));
 
 	while( smaug.isAlive() && pat.isAlive() ) {
 
@@ -164,10 +179,10 @@ public class YoRPG {
 	    
 	    if ( i == 1 ) { 
 		boolean special = true;
-	    	pat.specialize(special);
+		pat.specialize(special);
 	    }
 	    else {
-	        boolean special = false;
+		boolean special = false;
 		pat.specialize(special);
 	    }
 
@@ -189,6 +204,8 @@ public class YoRPG {
 				"You cut ye olde monster down, but " +
 				"with its dying breath ye olde monster " +
 				"laid a fatal blow upon thy skull." );
+	    losses ++;
+	    roundCount ++;
 	    return false;
 	}
 	//option 2: you slay the beast
@@ -215,21 +232,33 @@ public class YoRPG {
 	int i = 1;
 	if (playRound()) {
 	    pat.resetHP(hp);
-	    pat.raiseAttack(.05);
+	    pat.raiseAttack(.05 * levelCount);
 	    pat.raiseDefense(1);
+	    smaug.raiseAttack(.05);
+	    smaug.raiseDefense(1);
 	}
 	else pat.resetHP(hp);
 	if (losses >= 3) {
 	    System.out.println( "You fought bravely and lost. Oops.");
 	    return false;
 	}
-        try {
+	try {
 	    System.out.println( "Good job, man. \n You have " + (3- losses) + " lives remaining. Now what?" );
 	    System.out.println( "\t1: Keep playing level. \n\t2: Proceed to next level" );
 	    i = Integer.parseInt( in.readLine() );
 	}
 	catch ( IOException e ) { }
 	if (i == 1) {
+	    if (losses == 2) {
+		try {System.out.println("You only have 1 life left. Are you sure you want to continue?");
+		    System.out.println("\t1:I changed my mind \n \t2: Positive.");
+		    i = Integer.parseInt( in.readLine());
+		}
+		catch (IOException e ) { }
+		if (i == 1) return true;
+		else continuedPlay();
+	    }
+		
 	    continuedPlay();
 	}
 	else {
@@ -251,7 +280,9 @@ public class YoRPG {
 	    if ( playRound() ) {
 		pat.resetHP(hp);
 		pat.raiseAttack(.05);
-		pat.raiseDefense(1);
+		pat.raiseDefense(1 * levelCount);
+		smaug.raiseAttack(.05);
+		smaug.raiseDefense(1);
 	    }
 	    else pat.resetHP(hp);
 	}
