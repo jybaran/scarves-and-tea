@@ -215,8 +215,8 @@ public class YoRPG {
 	int i = 1;
 	if (playRound()) {
 	    pat.resetHP(hp);
-	    pat.raiseAttack(5);
-	    pat.raiseDefense(5);
+	    pat.raiseAttack(.05);
+	    pat.raiseDefense(1);
 	}
 	else pat.resetHP(hp);
 	if (losses >= 3) {
@@ -224,8 +224,7 @@ public class YoRPG {
 	    return false;
 	}
         try {
-	    System.out.println( "Good job, man. \n You played " + roundCount
-				+ " rounds, and have " + (3- losses) + " lives remaining. Now what?" );
+	    System.out.println( "Good job, man. \n You have " + (3- losses) + " lives remaining. Now what?" );
 	    System.out.println( "\t1: Keep playing level. \n\t2: Proceed to next level" );
 	    i = Integer.parseInt( in.readLine() );
 	}
@@ -251,8 +250,8 @@ public class YoRPG {
 	while (wins < 3 && losses < 3) { 
 	    if ( playRound() ) {
 		pat.resetHP(hp);
-		pat.raiseAttack(.5);
-		pat.raiseDefense(5);
+		pat.raiseAttack(.05);
+		pat.raiseDefense(1);
 	    }
 	    else pat.resetHP(hp);
 	}

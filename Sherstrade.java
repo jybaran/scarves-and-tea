@@ -6,8 +6,8 @@
 public class Sherstrade extends Character {
     public Sherstrade() {
 	_hp = 125;
-	_str = 40;
-	_def = 40;
+	_str = 30;
+	_def = 20;
 	_altdef = 15;
 	_attack = 1.8;
 	_altattack = 2.8;
@@ -23,15 +23,4 @@ public class Sherstrade extends Character {
 	retStr += "Lestrade is also there.";
 	return retStr;
     }
-
-    public String ascii() {
-	String retStr = "";
-	/*	retStr +=" \n  O"; 
-	retStr +=" \n \|/";
-	retStr +=" \n  |";
-	retStr +=" \n / \";*/
-	return retStr;
-    }
-
-
 }

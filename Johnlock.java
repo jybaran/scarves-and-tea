@@ -6,8 +6,8 @@
 public class Johnlock extends Character {
     public Johnlock() {
 	_hp = 125;
-	_str = 40;
-	_def = 30;
+	_str = 30;
+	_def = 20;
 	_altdef = 15;
 	_attack = 1.8;
 	_altattack = 3.6;
@@ -24,15 +24,4 @@ public class Johnlock extends Character {
 	retStr += "John is also there.";
 	return retStr;
     }
-
-    public String ascii() {
-	String retStr = "";
-	/*	retStr +=" \n  O"; 
-	retStr +=" \n \|/";
-	retStr +=" \n  |";
-	retStr +=" \n / \";*/
-	return retStr;
-    }
-
-
 }
