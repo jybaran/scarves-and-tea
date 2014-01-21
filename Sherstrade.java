@@ -6,6 +6,7 @@
 public class Sherstrade extends Character {
     public Sherstrade() {
 	_hp = 125;
+	_fullHP = 125;
 	_str = 30;
 	_def = 20;
 	_altdef = 15;

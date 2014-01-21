@@ -233,16 +233,16 @@ public class YoRPG {
     }//end playRound()
 
     public boolean continuedPlay() { //for playing more than 3 rounds per level
-	int hp = pat.getHP();
+	//int hp = pat.getHP();
 	int i = 1;
 	if (playRound()) {
-	    pat.resetHP(hp);
+	    pat.resetHP();
 	    pat.raiseAttack(.05 * levelCount);
 	    pat.raiseDefense(1);
 	    smaug.raiseAttack(.05);
 	    smaug.raiseDefense(1);
 	}
-	else pat.resetHP(hp);
+	else pat.resetHP();
 	if (losses >= 3) {
 	    System.out.println( "You fought bravely and lost. Oops.");
 	    return false;

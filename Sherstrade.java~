@@ -10,7 +10,7 @@ public class Sherstrade extends Character {
 	_def = 20;
 	_altdef = 15;
 	_attack = 1.8;
-	_altattack = 2.8;
+	_altattack = 2.2;
     }
 
     public int attack(Character opponent) {

@@ -7,7 +7,6 @@ public class Warrior extends Character {
        public Warrior( String name ) {
 	_name = name;
 	_hp = 125;
-	_FULLhp = 125;
 	_str = 40;
 	_def = 100;
 	_altdef = _def/2;

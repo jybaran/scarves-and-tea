@@ -10,7 +10,7 @@ public class Johnlock extends Character {
 	_def = 20;
 	_altdef = 15;
 	_attack = 1.8;
-	_altattack = 2.5;
+	_altattack = 2.6;
     }
 
     public int attack(Character opponent) {

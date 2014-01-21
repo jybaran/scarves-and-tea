@@ -10,7 +10,7 @@ public class Catlady extends Character {
 	_def = 30;
 	_altdef = 30;
 	_attack = 1.6;
-	_altattack = 2.6;
+	_altattack = 2.2;
     }
 
     public int attack(Character opponent) {

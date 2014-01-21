@@ -49,6 +49,7 @@ public abstract class Character {
     public void raiseHP(int x) {
 	_hp += x;
 	_fullHP += x;
+    }
     
     public void resetHP() {
 	_hp = _fullHP;

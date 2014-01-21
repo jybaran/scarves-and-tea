@@ -7,8 +7,8 @@ public class Ronmione extends Character {
     public Ronmione() {
 	_hp = 125;
 	_str = 30;
-	_def = 20;
-	_altdef = 30;
+	_def = 30;
+	_altdef = 20;
 	_attack = 1.4;
 	_altattack = 1.8;
     }
