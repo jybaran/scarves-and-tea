@@ -1,0 +1,49 @@
+Characters
+-Players
+    user gets two player charas, each is one of 2 or 3 options (so six player types total)
+    type ideas:
+	hero
+	Sherlock (high atk)
+	Hermione (mid atk, high sp atk) 
+	sidekick
+	John (high def, low freq high def boost with S)
+	Dobby (mid def, hp boost)
+    something about combos
+	Sherlock/John - boosts S def, J atk
+	Hermione/John - hp up every 3(?) rounds
+	Sherlock/Dobby - boosts both sp atk
+	Hermione/Dobby - boosts both def
+    to pick charas, 2/3 questions for each (pt based assignment)
+    	if one chara dies, other loses level to bring them back
+-Opponents
+    type ideas:
+	pterodactyl (high atk, low sp atk, mid def)
+	bear (high sp atk, low def)
+    boss??
+	bearodactyl
+
+Items
+    -weapons
+	gun
+	    max boost for John, only S or J can equip
+	wand
+	    only Hermione can equip
+	magic
+	    max boost for Dobby, only H or D can equip
+	stick
+	    very small atk boost, all can equip
+	crop
+	    max boost for Sherlock, only S or H can equip
+    -armor
+	shield
+	    all can equip, small def boost
+	chain link armor
+	    def boost, lowers atk
+	drug yourself; mental stability enabled
+    -potion
+	+ rand num to hp (red - 5, blue - 10, gold - 20)
+
+Gameplay
+-attacks require question answered (trivia ex heads of hiram mcdaniels)
+-3 levels
+-boss battle, if you don't win in 5 moves, monster tells you backstory, you cry and go home

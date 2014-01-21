@@ -88,16 +88,12 @@ public class YoRPG {
 	}
 	catch (IOException e ) { }
 	if (instructions == 1) {
-	    String rules = "\nHow to play:\n";
-	    rules += "First, select your hero character. The character you choose will determine your sidekick options.\n\n";
-	    rules += "Next, pick your sidekick. Each sidekick affects your hero's stats in different ways.\n\n";
-	    rules += "Each level, you will face off against a different type of monster. You must complete three rounds to continue to the next level, but choosing to play more rounds give you the chance to increase your stats.\n\n";
-	    rules += "You can choose to specialize or attack normally at the beginning of each turn. Specializing increases your attack, but lowers your defense, so choose wisely.\n\n";
-	    rules += "Now play! \n";
+	    String rules = "";
+	    rules += "Rules of the game. \n Now play! \n";
 	    System.out.println(rules);
 	}
 
-	s = "\nChoose your hero: \n";
+	s = "Choose your hero: \n";
 	s+= "\t1: Sherlock (consulting detective & high-functioning sociopath)\n";
 	s+= "\t2: Hermione (cleverest witch of her age)\n";
 	s+= "Selection: ";
@@ -200,7 +196,6 @@ public class YoRPG {
 
 	    System.out.println( "The " + monsterType + " hit back for " + d2
 				+ " points of damage.");
-	    System.out.println( "Your hitpoints are at " + pat.getHP() + ".");
 	}//end while
 
 	//option 1: you & the monster perish
@@ -277,18 +272,19 @@ public class YoRPG {
 	roundCount = 0;
 	wins = 0;
 	losses = 0;
-	int i = 1;
+	int hp = pat.getHP();
+	int i= 1;
 	System.out.println("Let's play level " + levelCount + "!\n");
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
 	    if ( playRound() ) {
-		pat.resetHP();
+		pat.resetHP(hp);
 		pat.raiseAttack(.1);
 		pat.raiseDefense(1 * levelCount);
 		smaug.raiseAttack(.1);
 		smaug.raiseDefense(1);
 	    }
-	    else pat.resetHP();
+	    else pat.resetHP(hp);
 	}
 	if (losses >= 3) {
 	    System.out.println( "You fought bravely and lost. Oops.");
