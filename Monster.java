@@ -7,7 +7,8 @@ public class Monster extends Character {
     String _name;
 
     public Monster() {
-	_hp = 150;
+	_hp = 125;
+	_fullHP = _hp;
 	_str = 35 + (int)( Math.random() * 10 );
 	_def = 20;
 	_attack = 1.5;

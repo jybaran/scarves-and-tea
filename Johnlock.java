@@ -6,7 +6,7 @@
 public class Johnlock extends Character {
     public Johnlock() {
 	_hp = 125;
-	_fullHP = 125;
+	_fullHP = _hp;
 	_str = 30;
 	_def = 20;
 	_altdef = 15;

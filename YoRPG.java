@@ -168,6 +168,7 @@ public class YoRPG {
 	smaug = new Monster( levelCount );
 	smaug.raiseAttack(0.5 * (levelCount - 1));
 	smaug.raiseDefense(1 * (levelCount - 1));
+	smaug.raiseHP(25 * levelCount);
 
 	while( smaug.isAlive() && pat.isAlive() ) {
 
@@ -197,7 +198,8 @@ public class YoRPG {
 	      to make sure I didn't delete something important*/
 	    System.out.println("You dealt " + d1 +
 			       " points of damage.");
-
+	    System.out.println("The " + monsterType + "'s hitpoints are at " 
+				+ smaug.getHP() + ".");
 	    System.out.println( "The " + monsterType + " hit back for " + d2
 				+ " points of damage.");
 	    System.out.println( "Your hitpoints are at " + pat.getHP() + ".");
@@ -308,16 +310,19 @@ public class YoRPG {
 		if (i == 1) {
 		    if(continuedPlay()) {
 			levelCount ++;
+			pat.raiseHP( roundCount * 5 );
 			return true;  
 		    }
 		    return false;
 		}
 		else {
 		    levelCount++;
+		    pat.raiseHP( roundCount * 5 );
 		    return true;
 		}
 	    }
 	}
+	pat.raiseHP( roundCount * 5 );
 	return true;
     }	    
 	    

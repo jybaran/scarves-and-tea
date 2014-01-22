@@ -6,7 +6,7 @@
 public class Catlady extends Character {
     public Catlady() {
 	_hp = 125;
-	_fullHP = 125;
+	_fullHP = _hp;
 	_str = 20;
 	_def = 30;
 	_altdef = 30;

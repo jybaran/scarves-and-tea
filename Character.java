@@ -44,6 +44,9 @@ public abstract class Character {
 
     public void lowerHP(int x) {
 	_hp -= x;
+	if ( _hp < 0 ) {
+	    _hp = 0;
+	}
     }
 
     public void raiseHP(int x) {
