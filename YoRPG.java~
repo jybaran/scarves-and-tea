@@ -260,7 +260,6 @@ public class YoRPG {
 	    System.out.println( "Well, it appears you're out of lives. Oops.");
 	    return false;
 	}
-
 	System.out.println( "Good job, man. \n You have " 
 			+ (3- losses) + " lives remaining. Now what?" );
 	System.out.println( "\t1: Keep playing level. "
