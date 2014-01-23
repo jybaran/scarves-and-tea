@@ -9,7 +9,7 @@ public class Sherstrade extends Character {
 	_fullHP = _hp;
 	_str = 30;
 	_def = 20;
-	_altdef = 15;
+	_altdef = 13;
 	_attack = 1.8;
 	_altattack = 2.2;
     }

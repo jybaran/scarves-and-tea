@@ -10,9 +10,6 @@ public class YoRPG {
 
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
 
-    //change this constant to set number of encounters in a game
-    public final static int MAX_ENCOUNTERS = 3; //should represent levels now, right?
-
     //each round, a Warrior and a Monster will be instantiated
     private Character pat;   //Is it man or woman?
     private Monster smaug; //Friendly generic monster name, eh?
@@ -91,6 +88,7 @@ public class YoRPG {
 	    rules += "Next, pick your sidekick. Each sidekick affects your hero's stats in different ways.\n\n";
 	    rules += "Each level, you will face off against a different type of monster. You must complete three rounds to continue to the next level, but choosing to play more rounds give you the chance to increase your stats.\n\n";
 	    rules += "You can choose to specialize or attack normally at the beginning of each turn. Specializing increases your attack, but lowers your defense, so choose wisely.\n\n";
+	    //add "do you want to know more about character options?"
 	    rules += "Now play! \n~~~~~~~~~~~~~~~~~~\n";
 	    System.out.println(rules);
 	}
@@ -210,7 +208,7 @@ public class YoRPG {
 	    System.out.println("\nYou dealt " + d1 +
 			       " points of damage.");
 	    System.out.println("The " + monsterType + "'s hitpoints are at " 
-				+ smaug.getHP() + ".");
+			       + smaug.getHP() + ".");
 	    System.out.println( "The " + monsterType + " hit back for " + d2
 				+ " points of damage.");
 	    System.out.println( "Your hitpoints are at " + pat.getHP() + ".\n");
@@ -262,9 +260,9 @@ public class YoRPG {
 	}
 
 	System.out.println( "Good job, man. \n You have " 
-			+ (3- losses) + " lives remaining. Now what?" );
+			    + (3- losses) + " lives remaining. Now what?" );
 	System.out.println( "\t1: Keep playing level. "
-			+ "\n\t2: Proceed to next level" );
+			    + "\n\t2: Proceed to next level" );
 	
 	try {
 	    input = in.readLine();
@@ -278,7 +276,7 @@ public class YoRPG {
 	if ( input.equals("1") ) {
 	    if (losses == 2) {
 		System.out.println("You only have 1 life left. "
-			+ "Are you sure you want to continue?");
+				   + "Are you sure you want to continue?");
 		System.out.println("\t1:I changed my mind. \n \t2: Positive.");
 		
 		try {
@@ -327,11 +325,11 @@ public class YoRPG {
 	else if (wins >= 3) {
 	    if (levelCount < 3) { 
 		System.out.println( "Good job, man. \n You played " +
-					roundCount
-					+ " rounds, and have " + (3- losses) +
-					" lives remaining. Now what?" );
+				    roundCount
+				    + " rounds, and have " + (3- losses) +
+				    " lives remaining. Now what?" );
 		System.out.println( "\t1: Keep playing level. "
-					+ "\n\t2: Proceed to next level." );
+				    + "\n\t2: Proceed to next level." );
 		try {
 	    	    input = in.readLine();
 		}
@@ -371,8 +369,8 @@ public class YoRPG {
 
 	int encounters = 0;
 
-	while( encounters <= 3) {//encounters < MAX_ENCOUNTERS ) {
-	    if ( !game.playLevel() )//originally playRound
+	while( encounters <= 3) {
+	    if ( !game.playLevel() )
 		break;
 	    encounters++;
 	    System.out.println();

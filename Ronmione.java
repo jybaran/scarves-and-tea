@@ -9,7 +9,7 @@ public class Ronmione extends Character {
 	_fullHP = _hp;
 	_str = 30;
 	_def = 30;
-	_altdef = 20;
+	_altdef = 15;
 	_attack = 1.4;
 	_altattack = 1.8;
     }
