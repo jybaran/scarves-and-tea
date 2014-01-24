@@ -74,7 +74,8 @@ Unresolved Issues:
 
 Cool Stuff Learned (conceptual and/or practical):
 -there are entirely too many Harry Potter ship names, and most of them are ridiculously awful (see also: Ronmione)
--in trying to make an autoatically played game we learned the very very basics of Thread.sleep
+-in trying to make an automatically played game we learned the very very basics of Thread.sleep
+-git command skills increased exponentially
 
 Mid-development Design Changes (and why):
 -had to get rid of the GUI due to completely underestimating the amount of work it would involve
