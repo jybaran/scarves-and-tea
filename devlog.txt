@@ -1,0 +1,72 @@
+~~~~~~~~~~
+2014-01-08
+~~~~~~~~~~
+Planned, pushed old YoRPG files to GitHub for later modification.
+
+~~~~~~~~~~
+2014-01-13
+~~~~~~~~~~
+Added options for picking hero and sidekick to YoRPG.
+
+~~~~~~~~~~
+2014-01-15
+~~~~~~~~~~
+Maria added levelCount to YoRPG. 
+Jenny adjusted the information about sidekicks and heroes (built in with name), created 2D Array so that sidekick options match chosen hero (if you pick Sherlock, you don't see Ron as an option for sidekick). Set up initialization (hero/sidekick pairs are different subclasses of Character).
+
+~~~~~~~~~~
+2014-01-16
+~~~~~~~~~~
+Removed name and getName.
+
+~~~~~~~~~~
+2014-01-17
+~~~~~~~~~~
+Maria made various level related modifications (monsters take level to determine type + stats).
+
+~~~~~~~~~~
+2014-01-18
+~~~~~~~~~~
+Maria added _altdef and _altattack to Character, sorted out roundCount and levelCount, and added playLevel() method. Win and loss counters. Rounds played and rounds won printed upon defeating monster (winning a round). continuedPlay() method to allow for playing rounds beyond minimum requirement of 3 (for the sake of boosting stats before moving onto the next level, where monsters are stronger).
+
+~~~~~~~~~~
+2014-01-19
+~~~~~~~~~~
+Jenny added isAlive() method to Monster class. Fixed typo causing error if player chose Hermione and Crookshanks. playTurn() renamed playRound(). Added descriptions for heroes and sidekicks. Added monsterType to YoRPG to determine name of monster based on level (bear in lvl 1, etc). Changed raiseAttack to take double, not int (was going up too quickly). Modified stats (different hero/sidekick pairs have different strengths and weaknesses). Adjusted damage calculation to deal with _altattack/defense.
+Maria added number of rounds played and number of rounds won to prompt regarding continuing to play rounds in a level or moving on to the next level. Deleted Bear subclass, adjusted call to specialize method in YoRPG to take boolean. Added raiseAttack, raiseDefense, getHP, and resetHP methods to Character class. Modified YoRPG to reset players hp & increase attack and defense at the end of rounds won. Removed ascii method and adjusted stats.
+
+~~~~~~~~~~
+2014-01-20
+~~~~~~~~~~
+Maria added option to view rules. Modified monster stats. Gave option to move on to the next level upon trying to play another round when down to 1 life.
+Jenny made minor change to damage calculation (added randomness, not every hit does the same damage).
+
+~~~~~~~~~~
+2014-01-21
+~~~~~~~~~~
+Jenny modified stats. Adjusted raise methods (affect _altattack and _altdef). Changed getHP to return a String showing current hp out of max hp, called in YoRPG after each turn. Added rules.
+Maria added _fullHP to Character subclasses. Modified stats.
+
+~~~~~~~~~~
+2014-01-22
+~~~~~~~~~~
+Jenny adjusted stats. YoRPG modified to print monsters current hp out of full hp at end of turn. hp raised at end of each level.
+
+~~~~~~~~~~
+2014-01-23
+~~~~~~~~~~
+Fixed issues with input in class (now capable of dealing with invalid/blank input). _altdef lowered.
+
+
+
+devlog.txt -- plaintext file chronicling evolution of your project. Should resemble a dated journal, and must include these sections, after your dated entries:
+
+    Obstacles Overcome (and how)
+
+    Unresolved Issues
+
+    Cool Stuff Learned (conceptual and/or practical)
+
+    Mid-development Design Changes (and why)
+
+    Lessons Learned (to apply to future projects, CS or otherwise)
