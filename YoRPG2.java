@@ -75,7 +75,7 @@ public class YoRPG2 {
 	int instructions = 0;
 	int automate = 0;
 	String input = "1";
-	s = "\n\nWelcome to the fighting thing!\n";
+	s = "\n\nWelcome to Scarf Wars!\n";
 	
 	s= "There are two kinds of people in the world. Would you like to \n";
 	s+="\t1: Entertain\n \t2: Observe.\n";

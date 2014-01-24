@@ -65,7 +65,7 @@ public class YoRPG {
 	String name = "";
 	int instructions = 0;
 	String input = "1";
-	s = "\n\nWelcome to the fighting thing!\n";
+	s = "\n\nWelcome to Scarf Wars!\n";
 
 	s+= "Would you like to read the rules before you begin? \n";
 	s+="\t1: Sure\n \t2: Nah, I know what I'm doing\n";
