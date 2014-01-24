@@ -62,17 +62,25 @@ Fixed issues with input in class (now capable of dealing with invalid/blank inpu
 
 Obstacles Overcome (and how):
 -we had an issue where inputting anything other than an integer crashed the entire game (even if the integer wasn't one of the choices, our else case caught it, but non-integers didn't cooperate with parseInt). we fixed this by saving the original input as a String, and setting that to a String of one of the int choices if it wasn't already one. as well as dealing with invalid inputs, this also allowed us to set a default choice if the player failed to submit anything.
+-we had problems with continuing a level past the minimum amount of rounds needed, which was resolved with the 
+  continuedPlay method. The continuedPlay method largely repeats the playLevel method and could probably have been 
+  shorter and neater.
 
 Unresolved Issues:
 -we were unable to create a GUI.
 -we attempted to set up an option to watch a game played automatically but ran out of time.
+  > actually, we got somewhere with this but we didn't test it well enough to trust it/there were loose ends. 
 -the stats are still not quite evenly matched. if you use all special attacks you are almost guaranteed to win every round.
 
 Cool Stuff Learned (conceptual and/or practical):
 -there are entirely too many Harry Potter ship names, and most of them are ridiculously awful (see also: Ronmione)
+-in trying to make an autoatically played game we learned the very very basics of Thread.sleep
 
 Mid-development Design Changes (and why):
 -had to get rid of the GUI due to completely underestimating the amount of work it would involve
+-made 4 characters instead of 2 characters that each have two subclasses for their sidekicks, because it was nicer.
+  > Not actually a significant change in any way
 
 Lessons Learned (to apply to future projects, CS or otherwise):
+-being clever AND original is hard. 
 -don't plan around being able to figure out a new thing (*cough*GUI*cough*), especially if you don't fully understand its limits.
