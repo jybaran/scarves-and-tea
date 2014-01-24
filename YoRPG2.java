@@ -5,6 +5,7 @@
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class YoRPG2 {
 
@@ -59,7 +60,7 @@ public class YoRPG2 {
       =============================================*/
     public static void sleep() {
 	try {
-	    Thread.sleep(2000);
+	    TimeUnit.SECONDS.sleep(2);
 	} catch(InterruptedException ex) {
 	    Thread.currentThread().interrupt();
 	}
