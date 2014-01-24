@@ -12,7 +12,9 @@ Added options for picking hero and sidekick to YoRPG.
 2014-01-15
 ~~~~~~~~~~
 Maria added levelCount to YoRPG. 
-Jenny adjusted the information about sidekicks and heroes (built in with name), created 2D Array so that sidekick options match chosen hero (if you pick Sherlock, you don't see Ron as an option for sidekick). Set up initialization (hero/sidekick pairs are different subclasses of Character).
+Jenny adjusted the information about sidekicks and heroes (built in with name), created 2D Array so that sidekick
+  options match chosen hero (if you pick Sherlock, you don't see Ron as an option for sidekick). Set up 
+  initialization (hero/sidekick pairs are different subclasses of Character).
 
 ~~~~~~~~~~
 2014-01-16
@@ -32,25 +34,35 @@ Maria added _altdef and _altattack to Character, sorted out roundCount and level
 ~~~~~~~~~~
 2014-01-19
 ~~~~~~~~~~
-Jenny added isAlive() method to Monster class. Fixed typo causing error if player chose Hermione and Crookshanks. playTurn() renamed playRound(). Added descriptions for heroes and sidekicks. Added monsterType to YoRPG to determine name of monster based on level (bear in lvl 1, etc). Changed raiseAttack to take double, not int (was going up too quickly). Modified stats (different hero/sidekick pairs have different strengths and weaknesses). Adjusted damage calculation to deal with _altattack/defense.
-Maria added number of rounds played and number of rounds won to prompt regarding continuing to play rounds in a level or moving on to the next level. Deleted Bear subclass, adjusted call to specialize method in YoRPG to take boolean. Added raiseAttack, raiseDefense, getHP, and resetHP methods to Character class. Modified YoRPG to reset players hp & increase attack and defense at the end of rounds won. Removed ascii method and adjusted stats.
+Jenny added isAlive() method to Monster class. Fixed typo causing error if player chose Hermione and Crookshanks. 
+  playTurn() renamed playRound(). Added descriptions for heroes and sidekicks. Added monsterType to YoRPG to 
+  determine name of monster based on level (bear in lvl 1, etc). Changed raiseAttack to take double, not int 
+  (was going up too quickly). Modified stats (different hero/sidekick pairs have different strengths and weaknesses).
+  Adjusted damage calculation to deal with _altattack/defense.
+Maria added number of rounds played and number of rounds won to prompt regarding continuing to play rounds in a 
+  level or moving on to the next level. Deleted Bear subclass, adjusted call to specialize method in YoRPG to take 
+  boolean. Added raiseAttack, raiseDefense, getHP, and resetHP methods to Character class. Modified YoRPG to reset 
+  players hp & increase attack and defense at the end of rounds won. Removed ascii method and adjusted stats.
 
 ~~~~~~~~~~
 2014-01-20
 ~~~~~~~~~~
-Maria added option to view rules. Modified monster stats. Gave option to move on to the next level upon trying to play another round when down to 1 life.
+Maria added option to view rules. Modified monster stats. Gave option to move on to the next level upon trying to 
+  play another round when down to 1 life.
 Jenny made minor change to damage calculation (added randomness, not every hit does the same damage).
 
 ~~~~~~~~~~
 2014-01-21
 ~~~~~~~~~~
-Jenny modified stats. Adjusted raise methods (affect _altattack and _altdef). Changed getHP to return a String showing current hp out of max hp, called in YoRPG after each turn. Added rules.
+Jenny modified stats. Adjusted raise methods (affect _altattack and _altdef). Changed getHP to return a String 
+  showing current hp out of max hp, called in YoRPG after each turn. Added rules.
 Maria added _fullHP to Character subclasses. Modified stats.
 
 ~~~~~~~~~~
 2014-01-22
 ~~~~~~~~~~
-Jenny adjusted stats. YoRPG modified to print monsters current hp out of full hp at end of turn. hp raised at end of each level.
+Jenny adjusted stats. YoRPG modified to print monsters current hp out of full hp at end of turn. hp raised at end 
+  of each level.
 
 ~~~~~~~~~~
 2014-01-23
@@ -61,16 +73,21 @@ Fixed issues with input in class (now capable of dealing with invalid/blank inpu
 ~~~~~~~~~~ FURTHER QUESTIONS ~~~~~~~~~~
 
 Obstacles Overcome (and how):
--we had an issue where inputting anything other than an integer crashed the entire game (even if the integer wasn't one of the choices, our else case caught it, but non-integers didn't cooperate with parseInt). we fixed this by saving the original input as a String, and setting that to a String of one of the int choices if it wasn't already one. as well as dealing with invalid inputs, this also allowed us to set a default choice if the player failed to submit anything.
+-we had an issue where inputting anything other than an integer crashed the entire game (even if the integer wasn't 
+  one of the choices, our else case caught it, but non-integers didn't cooperate with parseInt). we fixed this by 
+  saving the original input as a String, and setting that to a String of one of the int choices if it wasn't 
+  already one. as well as dealing with invalid inputs, this also allowed us to set a default choice if the player
+  failed to submit anything.
 -we had problems with continuing a level past the minimum amount of rounds needed, which was resolved with the 
   continuedPlay method. The continuedPlay method largely repeats the playLevel method and could probably have been 
   shorter and neater.
 
 Unresolved Issues:
 -we were unable to create a GUI.
--we attempted to set up an option to watch a game played automatically but ran out of time.
-  > actually, we got somewhere with this but we didn't test it well enough to trust it/there were loose ends. 
--the stats are still not quite evenly matched. if you use all special attacks you are almost guaranteed to win every round.
+-we attempted to set up an option to watch a game played automatically but ran out of time. We got somewhere with 
+  this but we didn't test it well enough to trust it/there were loose ends. 
+-the stats are still not quite evenly matched. if you use all special attacks you are almost guaranteed to win 
+  every round.
 
 Cool Stuff Learned (conceptual and/or practical):
 -there are entirely too many Harry Potter ship names, and most of them are ridiculously awful (see also: Ronmione)
@@ -84,4 +101,5 @@ Mid-development Design Changes (and why):
 
 Lessons Learned (to apply to future projects, CS or otherwise):
 -being clever AND original is hard. 
--don't plan around being able to figure out a new thing (*cough*GUI*cough*), especially if you don't fully understand its limits.
+-don't plan around being able to figure out a new thing (*cough*GUI*cough*), especially if you don't fully 
+  understand its limits.
