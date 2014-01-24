@@ -58,15 +58,21 @@ Jenny adjusted stats. YoRPG modified to print monsters current hp out of full hp
 Fixed issues with input in class (now capable of dealing with invalid/blank input). _altdef lowered.
 
 
+~~~~~~~~~~ FURTHER QUESTIONS ~~~~~~~~~~
 
-devlog.txt -- plaintext file chronicling evolution of your project. Should resemble a dated journal, and must include these sections, after your dated entries:
+Obstacles Overcome (and how):
+-we had an issue where inputting anything other than an integer crashed the entire game (even if the integer wasn't one of the choices, our else case caught it, but non-integers didn't cooperate with parseInt). we fixed this by saving the original input as a String, and setting that to a String of one of the int choices if it wasn't already one. as well as dealing with invalid inputs, this also allowed us to set a default choice if the player failed to submit anything.
 
-    Obstacles Overcome (and how)
+Unresolved Issues:
+-we were unable to create a GUI.
+-we attempted to set up an option to watch a game played automatically but ran out of time.
+-the stats are still not quite evenly matched. if you use all special attacks you are almost guaranteed to win every round.
 
-    Unresolved Issues
+Cool Stuff Learned (conceptual and/or practical):
+-there are entirely too many Harry Potter ship names, and most of them are ridiculously awful (see also: Ronmione)
 
-    Cool Stuff Learned (conceptual and/or practical)
+Mid-development Design Changes (and why):
+-had to get rid of the GUI due to completely underestimating the amount of work it would involve
 
-    Mid-development Design Changes (and why)
-
-    Lessons Learned (to apply to future projects, CS or otherwise)
+Lessons Learned (to apply to future projects, CS or otherwise):
+-don't plan around being able to figure out a new thing (*cough*GUI*cough*), especially if you don't fully understand its limits.
