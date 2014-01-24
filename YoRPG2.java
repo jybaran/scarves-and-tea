@@ -57,14 +57,13 @@ public class YoRPG2 {
       post: according to user input, modifies instance var for difficulty 
       and instantiates a Warrior
       =============================================*/
-    /* public static void sleep() {
+    public static void sleep() {
 	try {
-	    //thread to sleep for the specified number of milliseconds
-	    Thread.sleep(100);
+	    Thread.sleep(2000);
+	} catch(InterruptedException ex) {
+	    Thread.currentThread().interrupt();
 	}
-	catch ( InterruptedException ie) { 
-	}
-	}*/
+    }
     public void newGame() {
 
 	levelCount = 1;
@@ -124,6 +123,7 @@ public class YoRPG2 {
 	s+= "\t2: Hermione (cleverest witch of her age)\n";
 	s+= "Selection: ";
 	System.out.print(s);
+	if (automate == 2) sleep();
 	if (automate == 1) {
 	    try {
 		input = in.readLine();
@@ -142,7 +142,7 @@ public class YoRPG2 {
 	s+= "\t2: " + charas[heroType-1][1] + "\n";
 	s+= "Selection: ";
 	System.out.print(s);
-
+	if (automate == 2) sleep();       
 	if (automate == 1) {
 	    try {
 		input = in.readLine();
@@ -199,8 +199,9 @@ public class YoRPG2 {
 	  System.out.println( "Nothing to see here. Move along!" );
 
 	  else {*/
-
+	if (automate == 2) sleep();
 	System.out.println( "\nRound " + (roundCount + 1));
+	if (automate == 2) sleep();
 	System.out.println( "It's a " + monsterType + "!" );
 
 	smaug = new Monster( levelCount );
@@ -214,6 +215,7 @@ public class YoRPG2 {
 	    // If you land a hit, you incur greater damage,
 	    // ...but if you get hit, you take more damage.
 	    System.out.println( "Would you like to use a special attack?" );
+	    if (automate == 2) sleep();
 	    System.out.println( "\t1: Yes!\n\t2: Nope." );
 	    if (automate == 1) {
 		try {
@@ -242,16 +244,20 @@ public class YoRPG2 {
 
 	    System.out.println("\nYou dealt " + d1 +
 			       " points of damage.");
+	    if (automate == 2) sleep();
 	    System.out.println("The " + monsterType + "'s hitpoints are at " 
 			       + smaug.getHP() + ".");
+	    if (automate == 2) sleep();
 	    System.out.println( "The " + monsterType + " hit back for " + d2
 				+ " points of damage.");
+	    if (automate == 2) sleep();
 	    System.out.println( "Your hitpoints are at " + pat.getHP() + ".\n");
 	}//end while
 
 	//option 1: you & the monster perish
 	if ( !smaug.isAlive() && !pat.isAlive() ) {
-	    System.out.println( "Oh wow, you killed the monster " + 
+	    	if (automate == 2) sleep();
+		System.out.println( "Oh wow, you killed the monster " + 
 				"but it got you back and you died too. " +
 				"That really sucks." );
 	    losses ++;
@@ -265,6 +271,7 @@ public class YoRPG2 {
 	    System.out.println( "Nice! You killed the " + monsterType + "!" 
 				+ "\n\tRounds played: " + roundCount
 				+ "\n\tRounds won: " + wins);
+	    if (automate == 2) sleep();
 	    return true;
 	}
 	//option 3: the beast slays you
@@ -272,6 +279,7 @@ public class YoRPG2 {
 	    roundCount ++;
 	    losses ++;
 	    System.out.println( "Nice going. You got dead." );
+	    if (automate == 2) sleep();
 	    return false;
 	}//end else
 	return true;
@@ -291,13 +299,16 @@ public class YoRPG2 {
 
 	if (losses >= 3) {
 	    System.out.println( "Well, it appears you're out of lives. Oops.");
+	    if (automate == 2) sleep();
 	    return false;
 	}
 
 	System.out.println( "Good job, man. \n You have " 
 			    + (3- losses) + " lives remaining. Now what?" );
+	if (automate == 2) sleep();
 	System.out.println( "\t1: Keep playing level. "
 			    + "\n\t2: Proceed to next level" );
+	if (automate == 2) sleep();
 	
 	if (automate == 1) {
 	    try {
@@ -315,7 +326,9 @@ public class YoRPG2 {
 	    if (losses == 2) {
 		System.out.println("You only have 1 life left. "
 				   + "Are you sure you want to continue?");
+		if (automate == 2) sleep();
 		System.out.println("\t1:I changed my mind. \n \t2: Positive.");
+		if (automate == 2) sleep();
 		
 		if (automate == 1) {
 		    try {
@@ -348,6 +361,7 @@ public class YoRPG2 {
 	losses = 0;
 	String input = "2";
 	System.out.println("\nLet's play level " + levelCount + "!\n~~~~~~~~~~~~~~~~~~");
+	if (automate == 2) sleep();
 	//If you haven't won enough to progress and haven't lost enough to lose, you're in this loop
 	while (wins < 3 && losses < 3) { 
 	    if ( playRound() ) {
@@ -361,6 +375,7 @@ public class YoRPG2 {
 	}
 	if (losses >= 3) {
 	    System.out.println( "Well, it appears you're out of lives. Oops.");
+	    if (automate == 2) sleep();
 	    return false;
 	}
 	else if (wins >= 3) {
@@ -369,8 +384,10 @@ public class YoRPG2 {
 				    roundCount
 				    + " rounds, and have " + (3- losses) +
 				    " lives remaining. Now what?" );
+		if (automate == 2) sleep();
 		System.out.println( "\t1: Keep playing level. "
 				    + "\n\t2: Proceed to next level." );
+		if (automate == 2) sleep();
 		if (automate == 1) {
 		    try {
 			input = in.readLine();
